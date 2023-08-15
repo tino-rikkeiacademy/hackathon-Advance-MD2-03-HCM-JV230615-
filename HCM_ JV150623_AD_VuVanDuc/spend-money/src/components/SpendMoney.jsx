@@ -73,7 +73,7 @@ export default function SpendMoney() {
           localStorage.setItem('cardList',JSON.stringify(cartProducts))
           setFlag(!flag);
         }else {
-          let newCartProducts = cartProducts.filter(item => (item.quantity >= 1))
+          let newCartProducts = cartProducts.filter(item => (item.quantity > 1))
           localStorage.setItem('cardList',JSON.stringify(newCartProducts))
           setFlag(!flag);
         }
