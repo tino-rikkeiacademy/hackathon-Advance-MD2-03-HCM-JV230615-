@@ -1,7 +1,7 @@
 // import React, {useState, useEffect}from 'react'
 import Cart from './Cart'
 
-export default function ShoppingCart({cartProducts ,minusQuantity, plusQuantity}) {
+export default function ShoppingCart({cartProducts ,minusQuantity, plusQuantity, clearProductInCarts}) {
 
   return (
     <div>
@@ -17,29 +17,25 @@ export default function ShoppingCart({cartProducts ,minusQuantity, plusQuantity}
                     <div className="row g-0">
                     <div className="col-lg-8">
                         <div className="p-5">
-                        <div className="d-flex justify-content-between align-items-center mb-5">
-                            <h1 className="fw-bold mb-0 text-black">Shopping Cart</h1>
-                            <h6 className="mb-0 text-muted">{cartProducts.length} items</h6>
-                        </div>
-                        <hr className="my-4" />
-                        {
+                            <div className="d-flex justify-content-between align-items-center mb-5">
+                                <h1 className="fw-bold mb-0 text-black">Shopping Cart</h1>
+                                <h6 className="mb-0 text-muted">{cartProducts.length} items</h6>
+                            </div>
+                            <hr className="my-4" />
+                            {cartProducts.length > 0 ?
                             cartProducts.map((item, index) => 
                             (<Cart 
                                 key={index} 
                                 item={item} 
                                 minusQuantity={minusQuantity}
                                 plusQuantity={plusQuantity}
-                            />))
-                        }
-                        <hr className="my-4" />
-                        <div className="pt-5">
-                            <h6 className="mb-0">
-                            <a href="#!" className="text-body">
-                                <i className="fas fa-long-arrow-alt-left me-2" />
-                                Back to shop
-                            </a>
-                            </h6>
-                        </div>
+                            />)) :
+                            ''
+                            }
+                            <hr className="my-4" />
+                            <div className="pt-5">
+                                <button className='btn bg-primary text-white' onClick={clearProductInCarts}>Clear </button>
+                            </div>
                         </div>
                     </div>
                     <div className="col-lg-4 bg-grey">

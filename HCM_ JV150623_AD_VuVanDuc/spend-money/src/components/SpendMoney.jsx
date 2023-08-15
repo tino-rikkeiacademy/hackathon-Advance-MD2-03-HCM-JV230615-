@@ -65,6 +65,11 @@ export default function SpendMoney() {
     }
   }
 
+  const clearProductInCarts = () => {
+    localStorage.setItem('cardList',JSON.stringify([]))
+    setFlag(!flag);
+  }
+
   useEffect(()=> {
     setProducts(Products);
   }, [])
@@ -74,10 +79,9 @@ export default function SpendMoney() {
     setCartProducts(cardList);
   },[flag])
 
-
   return (
     <div>
-        <Header />
+        <Header cartProducts={cartProducts}   />
         <div className='container my-4'>
             <div className='row'>
                 {productsList.map((item, index) => (
@@ -93,6 +97,7 @@ export default function SpendMoney() {
           cartProducts={cartProducts} 
           minusQuantity={minusQuantity}
           plusQuantity = {plusQuantity}
+          clearProductInCarts ={clearProductInCarts}
         />
     </div>
   )
