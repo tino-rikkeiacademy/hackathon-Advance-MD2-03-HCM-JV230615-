@@ -7,7 +7,7 @@ import { CardActionArea } from '@mui/material';
 import ButtonSizes from './button';
 import { productList } from '../products';
 
-export default function ActionAreaCard({ item }) {
+export default function ActionAreaCard({ item, addTocart }) {
     console.log(productList);
 
     return (
@@ -24,7 +24,7 @@ export default function ActionAreaCard({ item }) {
                         <p>{item.title}</p>
                         <p>${item.price}</p>
                     </Typography>
-                    <ButtonSizes />
+                    <ButtonSizes addTocart={addTocart} />
                 </CardContent>
             </CardActionArea>
 

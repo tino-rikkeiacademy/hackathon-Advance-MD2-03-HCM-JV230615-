@@ -14,14 +14,14 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function ColumnsGrid() {
+export default function ColumnsGrid({ addTocart }) {
     return (
         <Box sx={{ flexGrow: 1, margin: '50px auto', width: ' 90%' }}>
             <Grid container spacing={2} columns={16}>
                 {productList.map((item, index) => (
                     <Grid xs={4} key={index}>
                         <Item>
-                            <ActionAreaCard item={item} />
+                            <ActionAreaCard addTocart={()=>addTocart(item)} item={item} />
                         </Item>
                     </Grid>
                 ))}
