@@ -1,0 +1,51 @@
+.card-item {
+    border: 1px solid rgb(182, 178, 178);
+    margin-bottom: 20px;
+}
+
+.card--body {
+    padding: 15px;
+}
+
+.card-img-v1 {
+    height: 200px;
+}
+
+.btn-card {
+    padding: 3px 0;
+    text-align: center;
+    user-select: none;
+}
+
+.btn-card--insert {
+    background-color: #fff;
+    color: #d61337;
+    width: 120px;
+    border-radius: 8px 0px 0px 8px;
+    border: 1px solid #d61337;
+    cursor: pointer;
+}
+
+.btn-card--add {
+    background-color: #d61337;
+    color: #fff;
+    padding: 0 15px;
+    border-radius: 0px 8px 8px 0px;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+.count {
+    border: 1px solid rgb(136, 133, 133);
+    flex: 1;
+}
+
+.sub-heading {
+    padding-bottom: 10px;
+
+}
+
+.sub-heading h5,
+.sub-heading span {
+    font-weight: 700;
+}

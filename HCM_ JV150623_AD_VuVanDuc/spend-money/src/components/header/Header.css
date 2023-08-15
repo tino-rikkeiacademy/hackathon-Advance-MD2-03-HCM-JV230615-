@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background-color: #d61337;
+}
+
+.header .heading {
+    color: #cec9c9;
+}
+
+.header .total {
+    color: #fff;
+    font-weight: 600;
+}
+
+
