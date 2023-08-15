@@ -65,6 +65,22 @@ export default function SpendMoney() {
     }
   }
 
+  const minusProduct = (id) => {
+    for(let i in cartProducts) {
+      if (cartProducts[i].id === id) {
+        if(cartProducts[i].quantity >= 1) {
+          cartProducts[i].quantity -= 1
+          localStorage.setItem('cardList',JSON.stringify(cartProducts))
+          setFlag(!flag);
+        }else {
+          let newCartProducts = cartProducts.filter(item => (item.quantity >= 1))
+          localStorage.setItem('cardList',JSON.stringify(newCartProducts))
+          setFlag(!flag);
+        }
+      }
+    }
+  }
+
   const clearProductInCarts = () => {
     localStorage.setItem('cardList',JSON.stringify([]))
     setFlag(!flag);
@@ -88,7 +104,9 @@ export default function SpendMoney() {
                   <div className='col-3' key={index}>
                     <Card 
                       product={item} 
-                      addToCart={addToCart}/>
+                      addToCart={addToCart}
+                      minusProduct = {minusProduct}
+                    />
                   </div>
                 ))}
             </div>

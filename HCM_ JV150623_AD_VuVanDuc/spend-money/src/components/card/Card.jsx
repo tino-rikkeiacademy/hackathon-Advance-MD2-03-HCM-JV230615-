@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import './Card.css'
-export default function Card({product, addToCart}) {
+export default function Card({product, addToCart, minusProduct}) {
   const [quantity, setQuantity] = useState(0)
 
-  const handleMinus = (quantity) => {
+  const handleMinus = (id, quantity) => {
+      minusProduct(id)
       if (quantity === 0) {
         setQuantity(0)
       }else {
@@ -25,7 +26,7 @@ export default function Card({product, addToCart}) {
           <span>${quantity === 0 ? product.price : product.price * quantity}</span>
         </div>
         <div className='btn-wrapper d-flex justify-content-between rounded-8'>
-          <span className='btn-card btn-card--insert'>Interest</span>
+          <span className='btn-card btn-card--insert' onClick={() => handleMinus(product.id, quantity)}>Interest</span>
           <span className='btn-card count'>{quantity}</span>
           <span className='btn-card btn-card--add' onClick={() => handleAddToCart(product.id)}>Add</span>
         </div>  
